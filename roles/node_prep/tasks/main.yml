@@ -1,6 +1,6 @@
 ########## CONFIGURE DNS ##########
 
-- name: check host file for correct resolv.conf
+  - name: check host file for correct resolv.conf
     lineinfile: dest=/etc/resolv.conf line="nameserver 1.1.1.1"
 
   - name: restart networking
