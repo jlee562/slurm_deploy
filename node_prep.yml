@@ -1,0 +1,10 @@
+############ BASE SETUP ##############
+
+- name: Base Compute node System Install
+  tags:
+    - initial-install
+  hosts: 
+    - compute_nodes
+  roles:
+    - node_prep
+    - compute_node

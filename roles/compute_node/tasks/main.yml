@@ -1,0 +1,113 @@
+  - name: Update and upgrade yum packages
+    yum:
+      name: ['perl-ExtUtils-MakeMaker', 'python3', 'rpm-build', 'nfs-utils', 'munge', 'munge-libs', 'munge-devel', 'mariadb-devel', 'mariadb-server', 'rng-tools', 'openssl', 'openssl-devel', 'pam-devel', 'numactl', 'numactl-devel', 'hwloc', 'hwloc-devel', 'lua', 'lua-devel', 'readline-devel', 'rrdtool-devel', 'ncurses-devel', 'man2html', 'libibmad', 'libibumad']
+      update_cache: yes
+      state: present
+
+  - name: find rpm files and register the result
+    find:
+      paths: /scratch
+      patterns: "*.rpm"
+    register: rpm_files
+
+  - set_fact:
+      rpm_list: "{{ rpm_files.files | map(attribute='path') | list}}"
+
+  - name: install rpm files using rpm_list
+    yum:
+      name: "{{rpm_list}}"
+      state: present
+
+############################################
+
+  - name: create users
+    command: groupadd -g {{MUNGEUSER}} munge
+    ignore_errors: yes
+  - name: create users
+    command: useradd  -m -c "MUNGE Uid 'N' Gid Emporium" -d /var/lib/munge -u {{MUNGEUSER}} -g munge  -s /sbin/nologin munge
+    ignore_errors: yes
+  - name: create users
+    command: groupadd -g {{SLURMUSER}} slurm
+    ignore_errors: yes
+  - name: create users
+    command: useradd  -m -c "SLURM workload manager" -d /var/lib/slurm -u {{SLURMUSER}} -g slurm  -s /bin/bash slurm
+    ignore_errors: yes
+
+
+############################################
+################ HOSTS #####################
+
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{login_ip}}        {{login_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute1_ip}}        {{compute1_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute2_ip}}        {{compute2_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute3_ip}}        {{compute3_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute4_ip}}        {{compute4_name}}"
+
+
+############################################
+########### STORAGE ########################
+
+  - name: make sure scratch exists
+    file:
+      path: /scratch
+      state: directory
+
+  - name: make sure packages exists
+    file:
+      path: /packages
+      state: directory
+
+  - name: make spool slurm
+    file:
+      path: /var/spool/slurm
+      state: directory
+
+  - name: mount scratch
+    lineinfile: dest=/etc/fstab line="{{login_name}}:/scratch        /scratch        nfs     defaults        0 0"
+
+  - name: mount packages
+    lineinfile: dest=/etc/fstab line="{{login_name}}:/packages        /packages        nfs     defaults        0 0"
+
+  - name: mount all
+    command: mount -a
+    ignore_errors: yes
+
+  - name: copy files
+    command: sudo cp /scratch/munge.key /etc/munge/munge.key
+
+  - name: Remove slurm
+    file:
+      path: /etc/slurm/slurm.conf
+      state: absent
+
+  - name: copy slurm file over
+    copy:
+      src: /scratch/slurm.conf
+      dest: /etc/slurm/slurm.conf
+      owner: slurm
+      group: slurm
+
+  - name: copy slurm files over
+    command: sudo cp /scratch/cgroup.conf /etc/slurm/cgroup.conf
+
+  - file:
+      path: /etc/munge/munge.key
+      owner: munge
+      group: munge
+      mode: 0400
+
+############################################
+
+  - name: enable munge
+    command: systemctl enable munge
+  - name: start munge
+    command: systemctl restart munge
+  - name: enable slurmd
+    command: systemctl enable slurmd
+  - name: restart slurmd
+    command: systemctl restart slurmd
