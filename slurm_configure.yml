@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: none
   tasks:
     - name: Import Compute Node Role
       import_role:
@@ -10,6 +10,11 @@
     - name: Import Node Prep Role
       import_role:
         name: node_prep
+      tags:
+        - login
+        - compute
+        - storage
+        - slurm
     - name: Import Login Node Role
       import_role:
         name: login_node
