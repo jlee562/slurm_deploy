@@ -1,7 +1,7 @@
   - name: set hostname
     command: hostnamectl set-hostname {{slurm_name}}
     ignore_errors: yes
-    
+
   - name: Update and upgrade yum packages
     yum:
       name: ['perl-ExtUtils-MakeMaker', 'python3', 'rpm-build', 'nfs-utils', 'munge', 'munge-libs', 'munge-devel', 'mariadb-devel', 'mariadb-server', 'rng-tools', 'openssl', 'openssl-devel', 'pam-devel', 'numactl', 'numactl-devel', 'hwloc', 'hwloc-devel', 'lua', 'lua-devel', 'readline-devel', 'rrdtool-devel', 'ncurses-devel', 'man2html', 'libibmad', 'libibumad']
@@ -49,8 +49,8 @@
       url: https://download.schedmd.com/slurm/slurm-20.11.8.tar.bz2
       dest: /scratch/
 
-#  - name: rpm build
-#    command: rpmbuild -ta /scratch/slurm-20.11.8.tar.bz2
+  - name: rpm build
+    command: rpmbuild -ta /scratch/slurm-20.11.8.tar.bz2
 
   - name: cp rpm's
     copy:
