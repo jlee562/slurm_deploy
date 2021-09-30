@@ -1,0 +1,15 @@
+---
+login_name: omnialogin
+login_ip: 192.168.200.10
+compute1_name: omniacompute1
+compute1_ip: 192.168.200.11
+compute2_name: omniacompute2
+compute2_ip: 192.168.200.12
+compute3_name: omniacompute3
+compute3_ip: 192.168.200.13
+compute4_name: omniacompute4
+compute4_ip: 192.168.200.14
+number_nodes: 4
+partition_name: OmniaCluster
+MUNGEUSER: 991
+SLURMUSER: 992
