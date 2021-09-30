@@ -1,7 +1,8 @@
 ---
-- hosts: none
+- hosts: all
   tasks:
     - name: Import Compute Node Role
+      when: inventory_hostname in groups['compute_nodes']
       import_role:
         name: compute_node
       tags:
@@ -16,18 +17,21 @@
         - storage
         - slurm
     - name: Import Login Node Role
+      when: inventory_hostname in groups['login_nodes']
       import_role:
         name: login_node
       tags:
         - login
         - never
     - name: Import Storage Node Role
+      when: inventory_hostname in groups['storage_nodes']
       import_role:
         name: storage_node
       tags:
         - storage
         - never
     - name: Import Slurm Node Role
+      when: inventory_hostname in groups['slurm_nodes']
       import_role:
         name: slurm_node
       tags:
