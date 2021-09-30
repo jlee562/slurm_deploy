@@ -85,13 +85,6 @@
       path: /etc/slurm/slurm.conf
       state: absent
 
-  - name: copy slurm file over
-    copy:
-      src: /scratch/slurm.conf
-      dest: /etc/slurm/slurm.conf
-      owner: slurm
-      group: slurm
-
 #  - name: copy slurm files over
 #    command: sudo cp /scratch/cgroup.conf /etc/slurm/cgroup.conf
 
