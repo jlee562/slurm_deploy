@@ -11,11 +11,21 @@
       import_role:
         name: node_prep
       tags:
-        - compute
-        - login
     - name: Import Login Node Role
       import_role:
         name: login_node
       tags:
         - login
+        - never
+    - name: Import Storage Node Role
+      import_role:
+        name: storage_node
+      tags:
+        - storage
+        - never
+    - name: Import Slurm Node Role
+      import_role:
+        name: slurm_node
+      tags:
+        - slurm
         - never

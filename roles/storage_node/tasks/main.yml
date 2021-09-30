@@ -1,0 +1,19 @@
+  - name: make sure scratch exists
+    file:
+      path: /scratch
+      state: directory
+  - name: make sure packages exists
+    file:
+      path: /packages
+      state: directory
+
+  - name: enable nfs exports
+    lineinfile: dest=/etc/exports line="/packages *(rw,sync,no_subtree_check)"
+  - name: enable nfs exports
+    lineinfile: dest=/etc/exports line="/scratch *(rw,sync,no_subtree_check)"
+
+  - name: export nfs
+    command: exportfs -a
+
+  - name: restart nfs
+    command: service nfs restart
