@@ -55,8 +55,8 @@
       url: https://download.schedmd.com/slurm/slurm-20.11.8.tar.bz2
       dest: /scratch/
 
-  - name: rpm build
-    command: rpmbuild -ta /scratch/slurm-20.11.8.tar.bz2
+#  - name: rpm build
+#    command: rpmbuild -ta /scratch/slurm-20.11.8.tar.bz2
 
   - name: cp rpm's
     copy:
@@ -109,12 +109,18 @@
     lineinfile:
       name: /etc/slurm/slurm.conf
       regexp: "^PartitionName=debug"
-      line: PartitionName={{partition_name}} Nodes=omnicompute[1-{{number_nodes}}] Default=YES MaxTime=INFINITE State=UP
+      line: PartitionName={{partition_name}} Nodes=omniacompute[1-{{number_nodes}}] Default=YES MaxTime=INFINITE State=UP
 
   - name: remove default node
     lineinfile:
       name: /etc/slurm/slurm.conf
       regexp: "^NodeName=server Procs=1 State=UNKNOWN"
+      state: absent
+
+  - name: remove default node
+    lineinfile:
+      name: /etc/slurm/slurm.conf
+      regexp: "^NodeName=linux[1-32] Procs=1 State=UNKNOWN"
       state: absent
 
   - name: change control machine
