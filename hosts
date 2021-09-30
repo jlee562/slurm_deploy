@@ -4,15 +4,15 @@ all:
     login_nodes:
       hosts:
         omnialogin:
-      vars: ansible_connection: local
+      vars: ansible_connection=local
     storage_nodes:
       hosts:
         omnialogin:
-      vars: ansible_connection: local
+      vars: ansible_connection=local
     slurm_nodes:
       hosts:
         omnialogin:
-      vars: ansible_connection: local
+      vars: ansible_connection=local
     compute_nodes:
       hosts:
         omniacompute1:
