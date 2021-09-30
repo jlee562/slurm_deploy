@@ -154,8 +154,10 @@
     command: cp /etc/slurm/slurm.conf /packages/slurm/config/slurm.conf
   - name: remove local file
     command: rm -rf /etc/slurm/slurm.conf
+    ignore_errors: yes
   - name: symbolic link
     command: ln -s /packages/slurm/config/slurm.conf /etc/slurm/slurm.conf
+    ignore_errors: yes
 
 ############################################
 
