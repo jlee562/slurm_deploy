@@ -152,6 +152,7 @@
     command: chmod -R 777 /scratch
   - name: copy files to shared storage
     command: cp /etc/slurm/slurm.conf /packages/slurm/config/slurm.conf
+    ignore_errors: yes
   - name: remove local file
     command: rm -rf /etc/slurm/slurm.conf
     ignore_errors: yes
