@@ -1,10 +1,21 @@
-############ BASE SETUP ##############
-
-- name: Base Compute node System Install
-  tags:
-    - initial-install
-  hosts: 
-    - compute_nodes
-  roles:
-    - node_prep
-    - compute_node
+---
+- hosts: all
+  tasks:
+    - name: Import Compute Node Role
+      import_role:
+        name: compute_node
+      tags:
+        - compute
+        - never
+    - name: Import Node Prep Role
+      import_role:
+        name: node_prep
+      tags:
+        - compute
+        - login
+    - name: Import Login Node Role
+      import_role:
+        name: login_node
+      tags:
+        - login
+        - never
