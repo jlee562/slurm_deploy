@@ -92,8 +92,8 @@
       owner: slurm
       group: slurm
 
-  - name: copy slurm files over
-    command: sudo cp /scratch/cgroup.conf /etc/slurm/cgroup.conf
+#  - name: copy slurm files over
+#    command: sudo cp /scratch/cgroup.conf /etc/slurm/cgroup.conf
 
   - file:
       path: /etc/munge/munge.key
