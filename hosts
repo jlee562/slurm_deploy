@@ -4,6 +4,12 @@ all:
     login_nodes:
       hosts:
         omnialogin:
+    storage_nodes:
+      hosts:
+        omnialogin:
+    slurm_nodes:
+      hosts:
+        omnialogin:
     compute_nodes:
       hosts:
         omniacompute1:
