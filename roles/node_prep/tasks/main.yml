@@ -26,3 +26,6 @@
       state: latest
 
 ########## DISABLE SELINUX ##########
+
+  - selinux:
+      state: disabled
