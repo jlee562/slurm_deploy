@@ -8,6 +8,9 @@
 
 ########## INSTALL PACKAGES ##########
 
+  - name: clear cache
+    command: yum clean all
+
   - name: install epel
     yum:
       name: ['epel-release']
