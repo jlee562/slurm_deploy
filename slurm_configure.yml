@@ -10,7 +10,6 @@
     - name: Import Node Prep Role
       import_role:
         name: node_prep
-      tags:
     - name: Import Login Node Role
       import_role:
         name: login_node
