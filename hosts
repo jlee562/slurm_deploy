@@ -5,17 +5,17 @@ all:
       hosts:
         omnialogin:
       vars:
-        connection: local
+        ansible_connection: local
     storage_nodes:
       hosts:
         omnialogin:
       vars:
-        connection: local
+        ansible_connection: local
     slurm_nodes:
       hosts:
         omnialogin:
       vars:
-        connection: local
+        ansible_connection: local
     compute_nodes:
       hosts:
         omniacompute1:
