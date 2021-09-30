@@ -1,5 +1,5 @@
 ---
-login_name: omnialogin
+slurm_name: omnialogin
 login_ip: 192.168.200.10
 compute1_name: omniacompute1
 compute1_ip: 192.168.200.11
