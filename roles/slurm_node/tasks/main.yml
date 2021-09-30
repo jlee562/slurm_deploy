@@ -134,10 +134,16 @@
 
   - name: copy files to shared storage
     command: cp /etc/slurm/slurm.conf /scratch/
-  - name: cpy files to shared storage
+  - name: copy files to shared storage
     command: cp /etc/munge/munge.key /scratch
   - name: change permissions
     command: chmod -R 777 /scratch
+  - name: copy files to shared storage
+    command: cp /etc/slurm/slurm.conf /packages/slurm/config/slurm.conf
+  - name: remove local file
+    command: rm -rf /etc/slurm/slurm.conf
+  - name: symbolic link
+    command: ln -s /packages/slurm/config/slurm.conf /etc/slurm/slurm.conf
 
 ############################################
 

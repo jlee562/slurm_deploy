@@ -101,6 +101,11 @@
       group: munge
       mode: 0400
 
+  - name: remove local file
+    command: rm -rf /etc/slurm/slurm.conf
+  - name: symbolic link
+    command: ln -s /packages/slurm/config/slurm.conf /etc/slurm/slurm.conf
+
 ############################################
 
   - name: enable munge
