@@ -55,8 +55,8 @@
       url: https://download.schedmd.com/slurm/slurm-20.11.8.tar.bz2
       dest: /scratch/
 
-#  - name: rpm build
-#    command: rpmbuild -ta /scratch/slurm-20.11.8.tar.bz2
+  - name: rpm build
+    command: rpmbuild -ta /scratch/slurm-20.11.8.tar.bz2
 
   - name: cp rpm's
     copy:
