@@ -22,6 +22,12 @@
       name: ['@development tools']
       update_cache: yes
       state: present
+      
+  - name: install wget
+    yum:
+      name: ['wget']
+      update_cache: yes
+      state: present
 
   - name: Upgrade all packages
     yum:
