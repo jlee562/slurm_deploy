@@ -61,6 +61,11 @@
     file:
       path: /packages
       state: directory
+      
+  - name: make sure home exists
+    file:
+      path: /home
+      state: directory
 
   - name: make spool slurm
     file:
@@ -72,6 +77,9 @@
 
   - name: mount packages
     lineinfile: dest=/etc/fstab line="{{login_name}}:/packages        /packages        nfs     defaults        0 0"
+    
+   - name: mount home
+    lineinfile: dest=/etc/fstab line="{{login_name}}:/home        /home        nfs     defaults        0 0"
 
   - name: mount all
     command: mount -a
