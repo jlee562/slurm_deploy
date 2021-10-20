@@ -78,7 +78,7 @@
   - name: mount packages
     lineinfile: dest=/etc/fstab line="{{login_name}}:/packages        /packages        nfs     defaults        0 0"
     
-   - name: mount home
+  - name: mount home
     lineinfile: dest=/etc/fstab line="{{login_name}}:/home        /home        nfs     defaults        0 0"
 
   - name: mount all
