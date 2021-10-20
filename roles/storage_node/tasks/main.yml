@@ -31,3 +31,6 @@
 
   - name: restart nfs
     command: service nfs restart
+    
+  - name: enable nfs
+    command: systemctl enable nfs
