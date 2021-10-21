@@ -7,6 +7,12 @@
       name: ['perl-ExtUtils-MakeMaker', 'python3', 'rpm-build', 'nfs-utils', 'munge', 'munge-libs', 'munge-devel', 'mariadb-devel', 'mariadb-server', 'rng-tools', 'openssl', 'openssl-devel', 'pam-devel', 'numactl', 'numactl-devel', 'hwloc', 'hwloc-devel', 'lua', 'lua-devel', 'readline-devel', 'rrdtool-devel', 'ncurses-devel', 'man2html', 'libibmad', 'libibumad']
       update_cache: yes
       state: present
+      
+  - name: remove slurm
+    yum:
+      name: ['munge', 'slurm', 'slurm*', 'slurm-*', 'munge*']
+      update_cache: yes
+      state: absent
 
 ############################################
 
