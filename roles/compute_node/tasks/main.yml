@@ -123,3 +123,27 @@
     command: systemctl enable slurmd
   - name: restart slurmd
     command: systemctl restart slurmd
+    
+    
+########## ADD USERS ###########
+
+   - name: Add the user 'john'
+     ansible.builtin.user:
+      name: john
+      password: tbQ2Qsmk
+      comment: Johnathan
+      uid: 1999
+
+   - name: Add the user 'jason'
+     ansible.builtin.user:
+      name: jason
+      password: tbQ2Qsmk
+      comment: Jason
+      uid: 2000
+      
+   - name: Add the user 'will'
+     ansible.builtin.user:
+      name: will
+      password: tbQ2Qsmk
+      comment: William
+      uid: 2001
