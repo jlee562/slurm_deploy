@@ -23,7 +23,7 @@
     command: tar -xzvf /packages/openmpi-4.1.1.tar.gz
 
   - name: configure
-    command: cd /packages/openmpi-4.1.1 && ./configure --prefix=/packages/openmpi/openmpi-4.1.1/ --with-ucx=/path_to_ucx_installation --enable-mca-no-build=btl-uct
+    command: cd /packages/openmpi-4.1.1 && ./configure --prefix=/packages/openmpi/openmpi-4.1.1/ --with-ucx=/packages/ucx --enable-mca-no-build=btl-uct
     
   - name: make
     command: cd /packages/openmpi-4.1.1 && sudo make all install
