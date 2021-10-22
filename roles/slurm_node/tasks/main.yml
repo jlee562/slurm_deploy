@@ -14,6 +14,23 @@
       update_cache: yes
       state: present
 
+############INSTALL OPENMPI#################
+
+  - name: download openmpi
+    command: wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz /packages/openmpi-4.1.1.tar.gz
+    
+  - name: untar openmpi
+    command: tar -xzvf /packages/openmpi-4.1.1.tar.gz
+
+  - name: configure
+    command: cd /packages/openmpi-4.1.1 && ./configure --prefix=/packages/openmpi/openmpi-4.1.1/
+    
+  - name: make
+    command: cd /packages/openmpi-4.1.1 && sudo make all install
+    
+  - name: setup bash
+    command: echo "export PATH=$PATH:/packages/openmpi/openmpi-4.1.1/bin" >> $HOME/.bashrc && echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/packages/openmpi/openmpi-4.1.1/lib" >> $HOME/.bashrc 
+  
 ############################################
 
   - name: create users
