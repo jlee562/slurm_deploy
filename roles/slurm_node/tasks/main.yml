@@ -181,8 +181,8 @@
 
 ########## ADD USERS ###########
 
-   - name: Add the user 'john'
-     ansible.builtin.user:
+  - name: Add the user 'john'
+    ansible.builtin.user:
       name: john
       password: tbQ2Qsmk
       comment: Johnathan
@@ -191,8 +191,8 @@
       ssh_key_bits: 2048
       ssh_key_file: .ssh/id_rsa
 
-   - name: Add the user 'jason'
-     ansible.builtin.user:
+  - name: Add the user 'jason'
+    ansible.builtin.user:
       name: jason
       password: tbQ2Qsmk
       comment: Jason
@@ -201,8 +201,8 @@
       ssh_key_bits: 2048
       ssh_key_file: .ssh/id_rsa
       
-   - name: Add the user 'will'
-     ansible.builtin.user:
+  - name: Add the user 'will'
+    ansible.builtin.user:
       name: will
       password: tbQ2Qsmk
       comment: William
