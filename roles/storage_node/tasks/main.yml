@@ -18,13 +18,13 @@
       state: directory
       
   - name: enable nfs exports
-    lineinfile: dest=/etc/exports line="/packages *(rw,sync,no_subtree_check)"
+    lineinfile: dest=/etc/exports line="/packages *(rw,sync,no_subtree_check,no_root_squash)"
   
   - name: enable nfs exports
-    lineinfile: dest=/etc/exports line="/scratch *(rw,sync,no_subtree_check)"
+    lineinfile: dest=/etc/exports line="/scratch *(rw,sync,no_subtree_check,no_root_squash)"
 
   - name: enable nfs exports
-    lineinfile: dest=/etc/exports line="/home *(rw,sync,no_subtree_check)"
+    lineinfile: dest=/etc/exports line="/home *(rw,sync,no_subtree_check,no_root_squash)"
     
   - name: export nfs
     command: exportfs -a
