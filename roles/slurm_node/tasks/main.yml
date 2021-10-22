@@ -4,7 +4,7 @@
     
   - name: remove slurm
     yum:
-      name: ['munge', 'slurm', 'slurm*', 'slurm-*', 'munge*']
+      name: ['slurm', 'slurm*', 'slurm-*']
       update_cache: yes
       state: absent
 
