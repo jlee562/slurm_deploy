@@ -1,3 +1,6 @@
+  - set_fact:
+    my_pass: "{{ pwd_alias }}"
+    
   - name: set hostname
     command: hostnamectl set-hostname {{slurm_name}}
     ignore_errors: yes
@@ -201,7 +204,7 @@
   - name: Add the user 'john'
     ansible.builtin.user:
       name: john
-      password: tbQ2Qsmk
+      password: {{ my_pass }}
       comment: Johnathan
       uid: 1999
       generate_ssh_key: yes
@@ -211,7 +214,7 @@
   - name: Add the user 'jason'
     ansible.builtin.user:
       name: jason
-      password: tbQ2Qsmk
+      password: {{ my_pass }}
       comment: Jason
       uid: 2000
       generate_ssh_key: yes
@@ -221,7 +224,7 @@
   - name: Add the user 'will'
     ansible.builtin.user:
       name: will
-      password: tbQ2Qsmk
+      password: {{ my_pass }}
       comment: William
       uid: 2001
       generate_ssh_key: yes
