@@ -1,7 +1,7 @@
 ########## CONFIGURE DNS ##########
 
   - name: check host file for correct resolv.conf
-    lineinfile: dest=/etc/resolv.conf line="nameserver 1.1.1.1"
+    lineinfile: dest=/etc/resolv.conf line="nameserver 8.8.8.8"
 
   - name: restart networking
     command: service network restart
