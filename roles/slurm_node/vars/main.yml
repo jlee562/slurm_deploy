@@ -1,14 +1,14 @@
 ---
 slurm_name: omnialogin
-login_ip: 192.168.200.10
+login_ip: 192.168.200.15
 compute1_name: omniacompute1
-compute1_ip: 192.168.200.11
+compute1_ip: 192.168.200.16
 compute2_name: omniacompute2
-compute2_ip: 192.168.200.12
+compute2_ip: 192.168.200.17
 compute3_name: omniacompute3
-compute3_ip: 192.168.200.13
+compute3_ip: 192.168.200.18
 compute4_name: omniacompute4
-compute4_ip: 192.168.200.14
+compute4_ip: 192.168.200.19
 number_nodes: 4
 partition_name: OmniaCluster
 MUNGEUSER: 991
