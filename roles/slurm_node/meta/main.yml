@@ -1,2 +1,3 @@
 dependencies:
   - role: storage_node
+  - role: node_prep
