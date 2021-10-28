@@ -204,7 +204,7 @@
   - name: Add the user 'john'
     ansible.builtin.user:
       name: john
-      password: {{ my_pass }}
+      password: "{{ my_pass }}"
       comment: Johnathan
       uid: 1999
       generate_ssh_key: yes
@@ -214,7 +214,7 @@
   - name: Add the user 'jason'
     ansible.builtin.user:
       name: jason
-      password: {{ my_pass }}
+      password: "{{ my_pass }}"
       comment: Jason
       uid: 2000
       generate_ssh_key: yes
@@ -224,7 +224,7 @@
   - name: Add the user 'will'
     ansible.builtin.user:
       name: will
-      password: {{ my_pass }}
+      password: "{{ my_pass }}"
       comment: William
       uid: 2001
       generate_ssh_key: yes
