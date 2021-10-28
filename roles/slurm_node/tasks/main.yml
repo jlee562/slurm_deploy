@@ -1,5 +1,6 @@
-  - set_fact:
-    my_pass: "{{ pwd_alias }}"
+  - name: set password fact
+    set_fact:
+      my_pass: "{{ pwd_alias }}"
     
   - name: set hostname
     command: hostnamectl set-hostname {{slurm_name}}
