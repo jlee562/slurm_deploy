@@ -1,6 +1,6 @@
 ########## REMOVE SLURM ##########
 
-- name: remove slurm
+  - name: remove slurm
     yum:
       name: ['slurm', 'slurm*', 'slurm-*']
       update_cache: yes
