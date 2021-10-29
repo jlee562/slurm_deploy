@@ -5,6 +5,7 @@
       import_role:
         name: node_prep
       tags:
+        - prep
         - login
         - compute
         - storage
