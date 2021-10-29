@@ -23,7 +23,7 @@
       update_cache: yes
       state: present
       
-  - name: install wget
+  - name: install packages
     yum:
       name: ['wget', 'parallel']
       update_cache: yes
