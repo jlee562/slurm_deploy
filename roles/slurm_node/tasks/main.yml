@@ -28,7 +28,7 @@
   - name: Extract openmpi
     ansible.builtin.unarchive:
       src: /packages/openmpi-4.1.1.tar.gz
-      dest: /packages/openmpi-4.1.1
+      dest: /packages/
 
   - name: configure
     command: cd /packages/openmpi-4.1.1 && ./configure --prefix=/packages/openmpi/openmpi-4.1.1/ --with-ucx=/packages/ucx --enable-mca-no-build=btl-uct
