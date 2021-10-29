@@ -20,8 +20,10 @@
 
 ############INSTALL OPENMPI#################
 
-  - name: download openmpi
-    command: cd /packages/ && wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
+  - name: Download file and force basic auth
+    get_url:
+      url: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
+      dest: /packages/openmpi-4.1.1.tar.gz
     
   - name: untar openmpi
     command: tar -xzvf /packages/openmpi-4.1.1.tar.gz
