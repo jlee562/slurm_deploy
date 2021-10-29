@@ -122,7 +122,13 @@
       name: /etc/slurm/slurm.conf
       regexp: "^PartitionName=debug"
       line: PartitionName={{partition_name}} Nodes=omniacompute[1-{{number_nodes}}] Default=YES MaxTime=INFINITE State=UP
-
+      
+  - name: remove default nodes
+    lineinfile:
+      name: /etc/slurm/slurm.conf
+      regexp: "^NodeName=linux[1-32] Procs=1 State=UNKNOWN"
+      state: absent
+      
   - name: remove default node
     lineinfile:
       name: /etc/slurm/slurm.conf
