@@ -29,10 +29,6 @@
       update_cache: yes
       state: present
 
-  - name: Upgrade all packages
-    yum:
-      name: '*'
-      state: latest
 
 ########## DISABLE SELINUX ##########
 
