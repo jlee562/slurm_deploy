@@ -6,10 +6,7 @@
         name: node_prep
       tags:
         - prep
-        - login
-        - compute
-        - storage
-        - slurm
+        - never
     - name: Import Compute Node Role
       when: inventory_hostname in groups['compute_nodes']
       import_role:
