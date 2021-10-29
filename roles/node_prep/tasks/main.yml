@@ -6,6 +6,19 @@
   - name: restart networking
     command: service network restart
 
+################ HOSTS #####################
+
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{login_ip}}        {{login_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute1_ip}}        {{compute1_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute2_ip}}        {{compute2_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute3_ip}}        {{compute3_name}}"
+  - name: check host file for correct hosts
+    lineinfile: dest=/etc/hosts line="{{compute4_ip}}        {{compute4_name}}"
+
 ########## INSTALL PACKAGES ##########
 
   - name: clear cache
