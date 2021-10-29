@@ -20,13 +20,15 @@
 
 ############INSTALL OPENMPI#################
 
-  - name: Download file and force basic auth
+  - name: download openmpi
     get_url:
       url: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
       dest: /packages/openmpi-4.1.1.tar.gz
     
-  - name: untar openmpi
-    command: tar -xzvf /packages/openmpi-4.1.1.tar.gz
+  - name: Extract openmpi
+    ansible.builtin.unarchive:
+      src: /packages/openmpi-4.1.1.tar.gz
+      dest: /packages/openmpi-4.1.1
 
   - name: configure
     command: cd /packages/openmpi-4.1.1 && ./configure --prefix=/packages/openmpi/openmpi-4.1.1/ --with-ucx=/packages/ucx --enable-mca-no-build=btl-uct
