@@ -1,3 +1,11 @@
+########## REMOVE SLURM ##########
+
+- name: remove slurm
+    yum:
+      name: ['slurm', 'slurm*', 'slurm-*']
+      update_cache: yes
+      state: absent
+
 ########## CONFIGURE DNS ##########
 
   - name: check host file for correct resolv.conf
