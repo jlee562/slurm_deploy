@@ -25,7 +25,7 @@
       
   - name: install wget
     yum:
-      name: ['wget']
+      name: ['wget', 'parallel']
       update_cache: yes
       state: present
 
