@@ -24,10 +24,10 @@
       name: "{{rpm_list}}"
       state: present
       
-  - name: Upgrade all packages
-    yum:
-      name: '*'
-      state: latest
+#  - name: Upgrade all packages
+#    yum:
+#      name: '*'
+#      state: latest
       
 
 
